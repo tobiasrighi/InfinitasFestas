@@ -1,9 +1,6 @@
-﻿using System;
+﻿using InfinitasFestas.Classes;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Runtime.InteropServices;
 using Excel = Microsoft.Office.Interop.Excel;
 
 namespace InfinitasFestas
@@ -20,9 +17,7 @@ namespace InfinitasFestas
 
         static void Main(string[] args)
         {
-            string str;
             int rCnt;
-            int cCnt;
             int rw = 0;
             int cl = 0;
 
@@ -33,7 +28,7 @@ namespace InfinitasFestas
             rw = range.Rows.Count;
             cl = range.Columns.Count;
 
-            cores = new List<InfinitasFestas.Item>();
+            cores = new List<Item>();
             for (rCnt = 1; rCnt <= rw; rCnt++)
             {
                 Item newItem = new Item();
@@ -47,7 +42,7 @@ namespace InfinitasFestas
             rw = range.Rows.Count;
             cl = range.Columns.Count;
 
-            categorias = new List<InfinitasFestas.Item>();
+            categorias = new List<Item>();
             for (rCnt = 1; rCnt <= rw; rCnt++)
             {
                 Item newItem = new Item();
@@ -99,20 +94,5 @@ namespace InfinitasFestas
             xlWorkBook.Close(true, null, null);
             xlApp.Quit();
         }
-    }
-
-    public class Produto
-    {
-        public string categoria { get; set; }
-        public string cor { get; set; }
-        public string nome { get; set; }
-        public string codigo { get; set; }
-    }
-
-    public class Item
-    {
-        public int ID { get; set; }
-        public string descricao { get; set; }
-        public int nroSeq { get; set; }
     }
 }
